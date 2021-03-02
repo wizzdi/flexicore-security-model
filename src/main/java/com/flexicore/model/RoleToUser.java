@@ -10,6 +10,7 @@ import com.flexicore.annotations.AnnotatedClazz;
 import com.flexicore.security.SecurityContextBase;
 
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 
@@ -24,7 +25,7 @@ import javax.persistence.ManyToOne;
 public class RoleToUser extends Baselink  {
 
 
-	@ManyToOne(targetEntity = Role.class)
+	@ManyToOne(targetEntity = Role.class,cascade = CascadeType.MERGE)
 	@Override
 	public Role getLeftside() {
 		return (Role) super.getLeftside();
@@ -39,7 +40,7 @@ public class RoleToUser extends Baselink  {
 	}
 
 
-	@ManyToOne(targetEntity = SecurityUser.class)
+	@ManyToOne(targetEntity = SecurityUser.class,cascade = CascadeType.MERGE)
 	@Override
 	public SecurityUser getRightside() {
 		return (SecurityUser) super.getRightside();

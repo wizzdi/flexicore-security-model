@@ -10,10 +10,7 @@ import com.flexicore.annotations.AnnotatedClazz;
 import com.flexicore.security.SecurityContextBase;
 
 
-import javax.persistence.Entity;
-import javax.persistence.Index;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 
 /**
@@ -34,14 +31,14 @@ import javax.persistence.Table;
 public class Baselink extends Baseclass {
 
 
-    @ManyToOne(targetEntity = Baseclass.class)
+    @ManyToOne(targetEntity = Baseclass.class,cascade = CascadeType.MERGE)
     protected Baseclass rightside;
-    @ManyToOne(targetEntity = Baseclass.class)
+    @ManyToOne(targetEntity = Baseclass.class,cascade = CascadeType.MERGE)
     protected Baseclass leftside;
 
     private String simplevalue;
 
-    @ManyToOne(targetEntity = Baseclass.class)
+    @ManyToOne(targetEntity = Baseclass.class,cascade = CascadeType.MERGE)
     protected Baseclass value;
 
     public Baselink() {
@@ -52,7 +49,7 @@ public class Baselink extends Baseclass {
         super(name, securityContext);
     }
 
-    @ManyToOne(targetEntity = Baseclass.class)
+    @ManyToOne(targetEntity = Baseclass.class,cascade = CascadeType.MERGE)
     public Baseclass getRightside() {
         return this.rightside;
     }
@@ -61,7 +58,7 @@ public class Baselink extends Baseclass {
         this.rightside = rightside;
     }
 
-    @ManyToOne(targetEntity = Baseclass.class)
+    @ManyToOne(targetEntity = Baseclass.class,cascade = CascadeType.MERGE)
     public Baseclass getLeftside() {
         return this.leftside;
     }
@@ -79,7 +76,7 @@ public class Baselink extends Baseclass {
         this.simplevalue = simplevalue;
     }
 
-    @ManyToOne(targetEntity = Baseclass.class)
+    @ManyToOne(targetEntity = Baseclass.class,cascade = CascadeType.MERGE)
     public Baseclass getValue() {
         return value;
     }

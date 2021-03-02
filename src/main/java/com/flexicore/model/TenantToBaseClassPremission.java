@@ -10,6 +10,7 @@ package com.flexicore.model;
 
 import com.flexicore.security.SecurityContextBase;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 
@@ -21,7 +22,7 @@ public class TenantToBaseClassPremission extends SecurityLink {
 
 
 
-	@ManyToOne(targetEntity = SecurityTenant.class)
+	@ManyToOne(targetEntity = SecurityTenant.class,cascade = CascadeType.MERGE)
 	@Override
 	public SecurityTenant getLeftside() {
 		return (SecurityTenant) super.getLeftside();
@@ -44,7 +45,7 @@ public class TenantToBaseClassPremission extends SecurityLink {
 	}
 
 
-	@ManyToOne(targetEntity = Baseclass.class)
+	@ManyToOne(targetEntity = Baseclass.class,cascade = CascadeType.MERGE)
 	@Override
 	public Baseclass getRightside() {
 		return super.getRightside();

@@ -9,6 +9,7 @@ package com.flexicore.model;
 import com.flexicore.annotations.AnnotatedClazz;
 import com.flexicore.security.SecurityContextBase;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 
@@ -26,16 +27,16 @@ public class ClazzLink extends Clazz {
 		super(name, securityContext);
 	}
 
-	@ManyToOne(targetEntity = Clazz.class)
+	@ManyToOne(targetEntity = Clazz.class,cascade = CascadeType.MERGE)
 	private Clazz left;
-	@ManyToOne(targetEntity = Clazz.class)
+	@ManyToOne(targetEntity = Clazz.class,cascade = CascadeType.MERGE)
 
 	private Clazz right;
-	@ManyToOne(targetEntity = Clazz.class)
+	@ManyToOne(targetEntity = Clazz.class,cascade = CascadeType.MERGE)
 
 	private Clazz value;
 	
-	@ManyToOne(targetEntity=Clazz.class)
+	@ManyToOne(targetEntity=Clazz.class,cascade = CascadeType.MERGE)
 
 	public Clazz getLeft() {
 		return left;
@@ -43,7 +44,7 @@ public class ClazzLink extends Clazz {
 	public void setLeft(Clazz left) {
 		this.left = left;
 	}
-	@ManyToOne(targetEntity=Clazz.class)
+	@ManyToOne(targetEntity=Clazz.class,cascade = CascadeType.MERGE)
 
 	public Clazz getRight() {
 		return right;
@@ -52,7 +53,7 @@ public class ClazzLink extends Clazz {
 		this.right = right;
 	}
 	
-	@ManyToOne(targetEntity=Clazz.class)
+	@ManyToOne(targetEntity=Clazz.class,cascade = CascadeType.MERGE)
 
 	public Clazz getValue() {
 		return value;

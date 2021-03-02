@@ -10,6 +10,7 @@ package com.flexicore.model;
 
 import com.flexicore.security.SecurityContextBase;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 
@@ -29,7 +30,7 @@ public class PermissionGroupToBaseclass extends Baselink {
 		super(name, securityContext);
 	}
 
-	@ManyToOne(targetEntity = PermissionGroup.class)
+	@ManyToOne(targetEntity = PermissionGroup.class,cascade = CascadeType.MERGE)
 	@Override
 	public PermissionGroup getLeftside() {
 		return (PermissionGroup) super.getLeftside();
@@ -45,7 +46,7 @@ public class PermissionGroupToBaseclass extends Baselink {
 		this.leftside=operation;
 	}
 
-	@ManyToOne(targetEntity = Baseclass.class)
+	@ManyToOne(targetEntity = Baseclass.class,cascade = CascadeType.MERGE)
 	@Override
 	public Baseclass getRightside() {
 		return super.getRightside();

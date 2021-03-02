@@ -10,6 +10,7 @@ package com.flexicore.model;
 
 import com.flexicore.security.SecurityContextBase;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 
@@ -28,7 +29,7 @@ public class OperationToClazz extends Baselink {
 		super(name, securityContext);
 	}
 
-	@ManyToOne(targetEntity = SecurityOperation.class)
+	@ManyToOne(targetEntity = SecurityOperation.class,cascade = CascadeType.MERGE)
 	//@JoinColumn(name = "leftside", referencedColumnName = "id")
 
 	@Override
@@ -47,7 +48,7 @@ public class OperationToClazz extends Baselink {
 		this.leftside=operation;
 	}
 
-	@ManyToOne(targetEntity = Clazz.class)
+	@ManyToOne(targetEntity = Clazz.class,cascade = CascadeType.MERGE)
 	//@JoinColumn(name = "rightside", referencedColumnName = "id")
 
 	@Override
