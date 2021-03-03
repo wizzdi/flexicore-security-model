@@ -10,7 +10,7 @@ import com.flexicore.annotations.AnnotatedClazz;
 import com.flexicore.security.SecurityContextBase;
 
 
-import javax.persistence.CascadeType;
+
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 
@@ -27,7 +27,7 @@ public class RoleToBaseclass extends SecurityLink {
 		super(name, securityContext);
 	}
 
-	@ManyToOne(targetEntity = Role.class,cascade = CascadeType.MERGE)
+	@ManyToOne(targetEntity = Role.class)
 	@Override
 	public Role getLeftside() {
 		// TODO Auto-generated method stub
@@ -37,7 +37,7 @@ public class RoleToBaseclass extends SecurityLink {
 		this.leftside=role;
 	}
 
-	@ManyToOne(targetEntity = Baseclass.class,cascade = CascadeType.MERGE)
+	@ManyToOne(targetEntity = Baseclass.class)
 	@Override
 	public Baseclass getRightside() {
 		// TODO Auto-generated method stub

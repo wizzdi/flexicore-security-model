@@ -5,7 +5,7 @@ import com.flexicore.model.Basic;
 import com.flexicore.model.Role;
 import com.flexicore.model.SecurityTenant;
 
-import javax.persistence.CascadeType;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -18,11 +18,11 @@ public class SecurityPolicy extends Basic {
 	@Column(columnDefinition = "timestamp with time zone")
 	private OffsetDateTime startTime;
 	private boolean enabled;
-	@ManyToOne(targetEntity = Role.class,cascade = CascadeType.MERGE)
+	@ManyToOne(targetEntity = Role.class)
 	private Role policyRole;
-	@ManyToOne(targetEntity = SecurityTenant.class,cascade = CascadeType.MERGE)
+	@ManyToOne(targetEntity = SecurityTenant.class)
 	private SecurityTenant policyTenant;
-	@ManyToOne(targetEntity = Baseclass.class,cascade = CascadeType.MERGE)
+	@ManyToOne(targetEntity = Baseclass.class)
 	private Baseclass security;
 
 
@@ -45,7 +45,7 @@ public class SecurityPolicy extends Basic {
 		return (T) this;
 	}
 
-	@ManyToOne(targetEntity = Role.class,cascade = CascadeType.MERGE)
+	@ManyToOne(targetEntity = Role.class)
 	public Role getPolicyRole() {
 		return policyRole;
 	}
@@ -55,7 +55,7 @@ public class SecurityPolicy extends Basic {
 		return (T) this;
 	}
 
-	@ManyToOne(targetEntity = SecurityTenant.class,cascade = CascadeType.MERGE)
+	@ManyToOne(targetEntity = SecurityTenant.class)
 	public SecurityTenant getPolicyTenant() {
 		return policyTenant;
 	}
@@ -65,7 +65,7 @@ public class SecurityPolicy extends Basic {
 		return (T) this;
 	}
 
-	@ManyToOne(targetEntity = Baseclass.class,cascade = CascadeType.MERGE)
+	@ManyToOne(targetEntity = Baseclass.class)
 	public Baseclass getSecurity() {
 		return security;
 	}

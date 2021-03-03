@@ -10,7 +10,7 @@ import com.flexicore.annotations.AnnotatedClazz;
 import com.flexicore.security.SecurityContextBase;
 
 
-import javax.persistence.CascadeType;
+
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 
@@ -23,7 +23,7 @@ public class TenantToUser extends Baselink {
 
     private boolean defualtTennant;
 
-    @ManyToOne(targetEntity = SecurityTenant.class,cascade = CascadeType.MERGE)
+    @ManyToOne(targetEntity = SecurityTenant.class)
 
     @Override
     public SecurityTenant getLeftside() {
@@ -43,7 +43,7 @@ public class TenantToUser extends Baselink {
         super(name, securityContext);
     }
 
-    @ManyToOne(targetEntity = SecurityUser.class,cascade = CascadeType.MERGE)
+    @ManyToOne(targetEntity = SecurityUser.class)
     //@JoinColumn(name = "rightside", referencedColumnName = "id")
 
     @Override
