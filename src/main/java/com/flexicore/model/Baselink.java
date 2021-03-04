@@ -31,14 +31,14 @@ import javax.persistence.*;
 public class Baselink extends Baseclass {
 
 
-    @ManyToOne(targetEntity = Baseclass.class,cascade = CascadeType.MERGE)
+    @ManyToOne(targetEntity = Baseclass.class)
     protected Baseclass rightside;
-    @ManyToOne(targetEntity = Baseclass.class,cascade = CascadeType.MERGE)
+    @ManyToOne(targetEntity = Baseclass.class)
     protected Baseclass leftside;
 
     private String simplevalue;
 
-    @ManyToOne(targetEntity = Baseclass.class,cascade = CascadeType.MERGE)
+    @ManyToOne(targetEntity = Baseclass.class)
     protected Baseclass value;
 
     public Baselink() {
@@ -49,7 +49,7 @@ public class Baselink extends Baseclass {
         super(name, securityContext);
     }
 
-    @ManyToOne(targetEntity = Baseclass.class,cascade = CascadeType.MERGE)
+    @ManyToOne(targetEntity = Baseclass.class)
     public Baseclass getRightside() {
         return this.rightside;
     }
@@ -58,7 +58,7 @@ public class Baselink extends Baseclass {
         this.rightside = rightside;
     }
 
-    @ManyToOne(targetEntity = Baseclass.class,cascade = CascadeType.MERGE)
+    @ManyToOne(targetEntity = Baseclass.class)
     public Baseclass getLeftside() {
         return this.leftside;
     }
@@ -76,7 +76,7 @@ public class Baselink extends Baseclass {
         this.simplevalue = simplevalue;
     }
 
-    @ManyToOne(targetEntity = Baseclass.class,cascade = CascadeType.MERGE)
+    @ManyToOne(targetEntity = Baseclass.class)
     public Baseclass getValue() {
         return value;
     }

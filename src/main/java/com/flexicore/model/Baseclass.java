@@ -54,17 +54,17 @@ public class Baseclass extends Basic implements Syncable {
 	private String dtype;
 
 
-	@ManyToOne(targetEntity = SecurityUser.class,cascade = CascadeType.MERGE)
+	@ManyToOne(targetEntity = SecurityUser.class)
 	@JsonView(Views.ForSwaggerOnly.class)
 	protected SecurityUser creator;
 
-	@ManyToOne(targetEntity = SecurityTenant.class,cascade = CascadeType.MERGE)
+	@ManyToOne(targetEntity = SecurityTenant.class)
 
 	private SecurityTenant tenant;
 
 	private boolean systemObject;
 
-	@ManyToOne(targetEntity = SecurityTenant.class,cascade = CascadeType.MERGE)
+	@ManyToOne(targetEntity = SecurityTenant.class)
 
 	public SecurityTenant getTenant() {
 		return tenant;
@@ -74,7 +74,7 @@ public class Baseclass extends Basic implements Syncable {
 		this.tenant = tenant;
 	}
 
-	@ManyToOne(targetEntity = Clazz.class,cascade = CascadeType.MERGE)
+	@ManyToOne(targetEntity = Clazz.class)
 	@JsonView(Full.class)
 	protected Clazz clazz;
 	// this field is added to to trigger metadatamodel generation , sometimes _.clazz field isn't created.
@@ -103,7 +103,7 @@ public class Baseclass extends Basic implements Syncable {
 		Class<? extends Baseclass> javaClass = this.getClass();
 		String typeName = javaClass.getCanonicalName();
 		Clazz clazz = Clazz.class.equals(javaClass) && this.name.equals("com.flexicore.model.Clazz") ? (Clazz) this : allclazzes.get(typeName);
-		this.setClazz(clazz);
+	//	this.setClazz(clazz);
 
 	}
 
@@ -131,7 +131,7 @@ public class Baseclass extends Basic implements Syncable {
 
 
 	@JsonView(Full.class)
-	@ManyToOne(targetEntity = Clazz.class,cascade = CascadeType.MERGE)
+	@ManyToOne(targetEntity = Clazz.class)
 	public Clazz getClazz() {
 		return clazz;
 	}
@@ -142,7 +142,7 @@ public class Baseclass extends Basic implements Syncable {
 
 
 	@JsonView(Views.ForSwaggerOnly.class)
-	@ManyToOne(targetEntity = SecurityUser.class,cascade = CascadeType.MERGE)
+	@ManyToOne(targetEntity = SecurityUser.class)
 	public SecurityUser getCreator() {
 		return creator;
 	}
