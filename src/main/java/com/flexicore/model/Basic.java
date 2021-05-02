@@ -1,6 +1,7 @@
 package com.flexicore.model;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.fasterxml.jackson.databind.annotation.JsonTypeResolver;
@@ -11,9 +12,6 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import java.time.OffsetDateTime;
 
-@JsonIdentityInfo(generator = ObjectIdGenerators.UUIDGenerator.class, property = "json-id")
-@JsonTypeInfo(use = JsonTypeInfo.Id.CLASS, property = "json-type", visible = true)
-@JsonTypeResolver(FCTypeResolver.class)
 @MappedSuperclass
 public abstract class Basic {
 
@@ -81,5 +79,10 @@ public abstract class Basic {
 	public <T extends Basic> T setUpdateDate(OffsetDateTime updateDate) {
 		this.updateDate = updateDate;
 		return (T) this;
+	}
+
+	@JsonProperty("json-type")
+	public String getJsonType(){
+		return getClass().getCanonicalName();
 	}
 }
